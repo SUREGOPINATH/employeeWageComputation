@@ -20,10 +20,31 @@ randomCheck=$((RANDOM%2));
 
 if [ $isPresent -eq $randomCheck ];
 then
-        read -p "Enter Employee rate per Hour : " empRatePerHr
-        read -p "Enter No.of hours employee worked : " empHrs
+        empRatePerHr=20
+        empHrs=8
         salary=$(($empHrs*empRatePerHr));
 else
         salary=0;
 fi
+
+##code of adding parttime
+
+isPartTime=1;
+isFullTime=2;
+empRatePerHr=20;
+randomCheck=$((RANDOM%3));
+
+if [ $isFullTime -eq $randomCheck ]
+then
+        empHrs=8;
+
+elif [ $isPartTime -eq $randomCheck ]
+then
+        empHrs=4;
+
+else
+        empHrs=0;
+fi
+
+salary=$(($empHrs*$empRatePerHr));
 
